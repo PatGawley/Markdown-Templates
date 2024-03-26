@@ -114,18 +114,37 @@ B -->|No| D[End]
 * Specify the interfaces between the system and its external environment.
 
 **4.1 The Context Viewpoint**
+* Accessibility
+    * Is there any requirements for the system to interface with specialist devices for use by people with disabilities?
+* Development Resource
+    * Are there any resource constraints (short timescales / Limitations on available skills / etc)?   
 
 **4.2 The Functional Viewpoint**
+* Development Resource
+    * Are there any resource constraints that could impose restrictions on functionality and on functional qualities such as generality?    
 
 **4.3 The Information Viewpoint**
-
+* Development Resource  
+    * Is there any requirement for specialists’ staff?
+    * Is there a requirement for a larger than normal team?
+    
 **4.4 The Concurrency Viewpoint**
+* Development Resource  
+    * How much time will be required for Development?
+    * How much time will be required for Testing?
 
 **4.5 The Development Viewpoint**
+* Development Resource
+    *   Are there any cost constraints? 
 
 **4.6 The Deployment Viewpoint**
+* Development Resource
+    *   Are there any cost constraints? 
+
 
 **4.7 The Operational Viewpoint**
+* Development Resource
+    * What are the cost implications of the proposed operational and support architecture?
 
 **10. Appendix**
 
