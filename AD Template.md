@@ -114,11 +114,17 @@ B -->|No| D[End]
 * Specify the interfaces between the system and its external environment.
 
 **4.1 The Context Viewpoint**
+
 **4.2 The Functional Viewpoint**
+
 **4.3 The Information Viewpoint**
+
 **4.4 The Concurrency Viewpoint**
+
 **4.5 The Development Viewpoint**
+
 **4.6 The Deployment Viewpoint**
+
 **4.7 The Operational Viewpoint**
 
 **10. Appendix**
