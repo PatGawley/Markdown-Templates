@@ -118,15 +118,24 @@ B -->|No| D[End]
     * Is there any requirements for the system to interface with specialist devices for use by people with disabilities?
 * Development Resource
     * Are there any resource constraints (short timescales / Limitations on available skills / etc)?   
-
+* Regulation
+    * Are there any requirements to interface with internal or external auditing or regulatory reporting systems.
+    
 **4.2 The Functional Viewpoint**
 * Development Resource
     * Are there any resource constraints that could impose restrictions on functionality and on functional qualities such as generality?    
+* Regulation
+    * What impact does the regulation (if any) have on what the system does and how it works?
 
 **4.3 The Information Viewpoint**
 * Development Resource  
     * Is there any requirement for specialists’ staff?
     * Is there a requirement for a larger than normal team?
+* Regulation
+    * What regulation are there which relate to the retention, use and manipulation of personal information? 
+    * Will any of the following be required of the personal information? 
+        * Privacy, Access control, Retention and archive, Audit, Availability, Distribution
+
     
 **4.4 The Concurrency Viewpoint**
 * Development Resource  
@@ -145,6 +154,9 @@ B -->|No| D[End]
 **4.7 The Operational Viewpoint**
 * Development Resource
     * What are the cost implications of the proposed operational and support architecture?
+
+* Regulation
+    * Are there any specific operational tools and processes required to manage and oversee regulatory reporting activities?
 
 **10. Appendix**
 
