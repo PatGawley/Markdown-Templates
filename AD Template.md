@@ -53,9 +53,13 @@ B -->|No| D[End]
 
 > _Outline the business constraints and assumptions that influence the architecture._
 
-# 3. Functional Viewpoint
+## 3. Functional Viewpoint
 
-## High-Level Architectural Overview
+### Functional Capabilities
+
+> Specify that capabilites of the system, what is the system required to do and potentailly what is the system not required to do
+
+### High-Level Architectural Overview
 
 > _Specify the interfaces between the system and its external environment.  Consider usng a C4 context diagram (see below)._
 
@@ -103,148 +107,86 @@ B -->|No| D[End]
 
       UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
 ```
+### Internal Structure
 
-## 4. Element View
-<ins>**4.1 The Context Viewpoint**</ins>
-<ins>Accessibility</ins>
-* Is there any requirements for the system to interface with specialist devices for use by people with disabilities?
+> Describe the design philosophy of the system. Is it micro-services, a monolith, commodity middleware? Useful to extend this to provide security to technical teams that the system is being built to common standards/best practice, but don't detail these will be covered elsewhere
 
-<ins>Development Resource</ins>
-* Are there any resource constraints (short timescales / Limitations on available skills / etc)?   
+### Component View
 
-<ins>Evolution</ins> 
-* Describe the system's adaptability to meet future needs.
-* Identify the potential growth areas and performance requirements for the future.
+> _Describe the system's overall architecture and its high-level components._
 
-<ins>Performance and Scalability</ins>
-* Describe what will affect performance (how quickly it runs) and drawback of any change in performance.
-* Describe the system's scalability to meet future needs.
-* Document the process for addressing potential architectural changes and modifications.
+## 4. Development Viewpoint
 
-<ins>Regulation</ins>
-* Are there any requirements to interface with internal or external auditing or regulatory reporting systems.
-    
-<ins>**4.2 The Functional Viewpoint**</ins>
-<ins>Availability and Resilience</ins>
-* Are Functional changes required to support availability requirements, (offline mode when communications network is not available)?
+### Module Organisation
+> Describe the "modules" that make up the codebase, modules here meaning logical units within the code e.g. DB persistence or configuration
+todo - Diagram 
 
-<ins>Development Resource</ins>
-* Define the system's main functions and their interactions.
-* Specify the interfaces between the system and its external environment.
-* Are there any resource constraints that could impose restrictions on functionality and on functional qualities such as generality?    
+### Common Processing
+> Outline any commonalities both within and without the system. Are there any utilitiy modules, any frameworks/tooling the system relise on
 
-<ins>Evolution</ins> 
-* Describe the system's adaptability to meet future needs with regards to functionality.
-* Identify the potential growth areas and performance requirements for the future with regards to functionality.
+### Standadisation of Design
+> The coding standards that apply to this system. Think of the needs/costs of maintatinability, reliability and technical cohesion
 
-<ins>Performance and Scalability</ins>
-* Describe the system's scalability to meet future needs.
-* Document the process for addressing potential architectural changes and modifications.
+### Standardisation of Testing
+> The testing standards that apply to this system. Think of the applicability of the layers of the testing pyramid and supporting infrastructure like tooling or subs/mocks
 
-<ins>Regulation</ins>
-* What impact does the regulation (if any) have on what the system does and how it works?
+### Codeline Organization
+> Set out how the repo(s) will be structured and why that structure is being used
 
-<ins>Usability</ins>
-* What are all places where people may interact with the system (touch points)?
-* How will users interact with the system at each touch point?
+### Quality Measuring
+> Outline the mechanisms for measuring and tracking system quality, testing quality as well as the code quality
 
-<ins>**4.3 The Information Viewpoint**</ins>
-<ins>Availability and Resilience</ins>
-* What are the processes and systems for backup and recovery. 
-* Systems must be backed up in such a way that they can be recovered in a reasonable amount of time if a disaster occurs.
-* Backups should not impact online availability, or if they do, they may need to be scheduled to occur outside the online day. 
+### Addressing Quality
+> Define the process for addressing known quality issues and defects
 
-<ins>Development Resource</ins>  
-* Is there any requirement for specialists’ staff?
-* Is there a requirement for a larger than normal team?
-* Identify the data flows and data structures within the system.
+## 5. Deployment Viewpoint
 
-<ins>Performance and Scalability</ins>
-* Describe the system's scalability to meet future needs.
-* Document the process for addressing potential architectural changes and modifications.
+### Runtime Platform Required
+> The deployed view of the system and the type of resrouces needed. May be different between environements, but should include compute modules, storage, DBs, etc
+todo - diagram
 
-<ins>Regulation</ins>
-* What regulations are there which relate to the retention, use and manipulation of personal information? 
-* How will the regulations impact following with the use of the personal information? 
-* Privacy, Access control, Retention and archive, Audit, Availability, Distribution
+### Specification of Runtime Platform
+> Outlines the exact specification needed for each Runtime, this may not be needed if this is documented in IaC code but you may include reasoning here
 
-<ins>Security</ins>
-* Describe the security requirements, policies, and measures implemented in the system relating to data.
-* Identify potential security threats and vulnerabilities relating to data..
-* Outline the security controls and safeguards to protect the system and its data.
-* Document the procedures for managing security incidents and breaches relating to data..
+### Third-party Requirements
+> Are there any third party requirements that will affect the deployed system
 
-<ins>**4.4 The Concurrency Viewpoint**</ins>
-<ins>Development Resource</ins>  
-* How much time will be required for Development?
-* How much time will be required for Testing?
+### Technology Compatability
+> Any requirements that we impart onto the deployed system, does this system use a .Net version that is out of the ordinary or a DB library that needs to be configured
 
-<ins>Evolution</ins> 
-* Describe the system's adaptability to meet future needs relating to concurrency.
-* Identify the potential growth areas and performance requirements for the future relating to concurrency.
+### Network Requirements
+> Where applicable, are there any requirements on the network of the deployed system
 
-<ins>Performance and Scalability</ins>
-* Describe the system's scalability to meet future needs.
-* Document the process for addressing potential architectural changes and modifications.
+### Network Capcaity Required
+> Not likely to be an issue for resrouces that live in the cloud, but are there any systems/dependencies that will produce load that needs to be condiered for the overal network capacity
 
-<ins>**4.5 The Development Viewpoint**</ins>
-<ins>Availability and Resilience</ins>
-* What design constraints could there be on the software modules? For example, all subsystems may have to support start, stop, pause, and restart commands to align with your failover strategy. 
+## 6. Evolution Viewpoint
 
-<ins>Development Resource</ins>
-* Are there any cost constraints?
-* Define the system's software components and their implementation details.
-* Specify the technologies, tools, and frameworks used in the development process.
+### Adaptability Considerations
+> Describe the system's adaptability and scalability to meet future needs
 
-<ins>Evolution</ins> 
-* Describe the system's adaptability to meet future needs.
-* Identify the potential growth areas and performance requirements for the future.
-* Outline the migration strategy for future enhancements and updates.
-* Outline the development lifecycle and its phases
+### Expected Growth
+> Identify the potential growth areas and performance requirements for the future
 
-<ins>Performance and Scalability</ins>
-* Describe the development approach and methodologies used to create the system.
-* Describe the system's scalability to meet future needs.
-* Document the process for addressing potential architectural changes and modifications.
+### End-of-life Consideration
+> Outline when the current system might become unfit for purpose and the migration stratege
 
-<ins>Security</ins>
-* Describe the security requirements, policies, and measures implemented in the system.
-* Identify potential security threats and vulnerabilities.
-* Outline the security controls and safeguards to protect the system and its data.
+### In-life Rework
+> Document the process for addressing potential architectural changes and modifications to the system
+
+## 7. Security Viewpoint
+
+### Adherance to Policy
+> Describe the security requirements, policies, and measures implemented in the system
+
+### Known Attack Surfaces
+> Identify potential security threats and vulnerabilities and their mitigations
+
+### Attack Management 
 * Document the procedures for managing security incidents and breaches.
 
-<ins>4.6 The Deployment Viewpoint</ins>
-<ins>Availability and Resilience</ins>
-* What requirements are needed for a fault-tolerant production environment?
-* Is a disaster recovery process required?
-* Is any specialist software required to support hardware redundancy or clustering?
+## 8. Appendix
 
-<ins>Development Resource</ins>
-* Are there any cost constraints?
-* Describe the system's deployment architecture and its physical components.
-* Specify the hardware and software platforms required for deployment.
-* Define the network topology and communication protocols.
-* Outline the operational procedures for managing and maintaining the system.
-
-<ins>**4.7 The Operational Viewpoint**</ins>
-<ins>Availability and Resilience</ins>
-* Are processes and mechanisms to allow the identification and recovery of problems in the production environment required. 
-* Is there a need for main site failover, network failover, or data recovery? 
-
-<ins>Development Resource</ins>
-* What are the cost implications of the proposed operational and support architecture? 
-
-<ins>Regulation</ins>
-* Are there any specific operational tools and processes required to manage and oversee regulatory reporting activities?
-
-<ins>Usability</ins>
-    * What are the needs of the system’s administrators?
-    * What action can be taken to ensure important information is highlighted?
-
-
-
-**10. Appendix**
-
-* Include additional supporting documentation, such as diagrams, prototypes, and code snippets.
-* Reference relevant standards, guidelines, and architectural patterns used in the design.
-* Provide glossaries of terms and acronyms used throughout the document.
+> Include additional supporting documentation, such as diagrams, prototypes, and code snippets.
+> Reference relevant standards, guidelines, and architectural patterns used in the design.
+> Provide glossaries of terms and acronyms used throughout the document.
