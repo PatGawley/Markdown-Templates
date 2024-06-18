@@ -183,7 +183,7 @@ todo - diagram
 > Identify potential security threats and vulnerabilities and their mitigations
 
 ### Attack Management 
-* Document the procedures for managing security incidents and breaches.
+> Document the procedures for managing security incidents and breaches.
 
 ## 8. Appendix
 
