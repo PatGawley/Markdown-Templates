@@ -119,7 +119,13 @@ B -->|No| D[End]
 
 ### Module Organisation
 > Describe the "modules" that make up the codebase, modules here meaning logical units within the code e.g. DB persistence or configuration
-todo - Diagram 
+
+```mermaid
+    erDiagram
+        CUSTOMER ||--o{ ORDER : places
+        ORDER ||--|{ LINE-ITEM : contains
+        CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
+```
 
 ### Common Processing
 > Outline any commonalities both within and without the system. Are there any utilitiy modules, any frameworks/tooling the system relise on
@@ -133,6 +139,15 @@ todo - Diagram
 ### Codeline Organization
 > Set out how the repo(s) will be structured and why that structure is being used
 
+```mermaid
+    graph TD;
+        Solution-->Project;
+        Project-->App_Data;
+        Project-->App_Start;
+        Project-->Controllers;
+        Project-->etc
+```
+
 ### Quality Measuring
 > Outline the mechanisms for measuring and tracking system quality, testing quality as well as the code quality
 
@@ -143,10 +158,33 @@ todo - Diagram
 
 ### Runtime Platform Required
 > The deployed view of the system and the type of resrouces needed. May be different between environements, but should include compute modules, storage, DBs, etc
-todo - diagram
+
+```mermaid
+        C4Context
+      Enterprise_Boundary(b0, "SystemX") {
+        System(EndUserUI, "React Hosted App", "Access point for all users into the system")
+
+        Enterprise_Boundary(b1, "Backend") {
+
+          System(NetApp1, "App Service", "Consumes messages from the service bus and holds in memory")
+          System(ServiceBus1, "Azure Service Bus", "Queue of incoming messages to be consumed")
+        }
+      }
+
+      BiRel(EndUserUI, NetApp1, "Uses")
+      Rel(NetApp1, ServiceBus1, "Consumes")
+
+
+```
 
 ### Specification of Runtime Platform
 > Outlines the exact specification needed for each Runtime, this may not be needed if this is documented in IaC code but you may include reasoning here
+
+| Resource     | Azure Resource    | Specification | Environment  |
+| :---         | :---              |:---:          | :---:        |
+| DB1          | cosmosDB          | ...           | ...          |
+| .Net App1    | App Service       | ...           | ...          |
+| ServiceBus1  | Service Bus       | ...           | ..           |
 
 ### Third-party Requirements
 > Are there any third party requirements that will affect the deployed system
@@ -167,6 +205,15 @@ todo - diagram
 
 ### Expected Growth
 > Identify the potential growth areas and performance requirements for the future
+
+```mermaid
+    xychart-beta
+    title "Projected Useage"
+    x-axis [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]
+    y-axis "Usage (in million users)" 4000 --> 11000
+    bar [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+    line [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+```
 
 ### End-of-life Consideration
 > Outline when the current system might become unfit for purpose and the migration stratege
